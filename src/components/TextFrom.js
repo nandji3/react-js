@@ -28,10 +28,8 @@ export default function TextFrom(props) {
     }
 
     const handleCopy = () => {
-        let text = document.getElementById("myBox");
-        text.select();
-        navigator.clipboard.writeText(text.value);
-        document.getSelection().removeAllRanges(); //remove copy blue color after copied text
+        navigator.clipboard.writeText(text);
+        //document.getSelection().removeAllRanges(); //remove copy blue color after copied text
         props.showAlert("Copy text ", "success");
     }
 
@@ -68,7 +66,7 @@ export default function TextFrom(props) {
 
             <div className="container my-3 " style={{ color: props.mode === 'light' ? 'black' : 'white' }}>
                 <h3 >Text Summary</h3>
-                <p>{text.split(" ").filter((ele) => { return ele.length !== 0 }).length} Wrods and {text.length} Characters.</p>
+                <p>{text.split(/\s+/).filter((ele) => { return ele.length !== 0 }).length} Wrods and {text.length} Characters.</p>
                 <p> {0.008 * text.split(" ").filter((ele) => { return ele.length !== 0 }).length} minutes time to take read all paragraph</p>
                 <h3>Preview Paragraph</h3>
                 <p>{(text === "") ? `Nothing to Preview !` : text}</p>
