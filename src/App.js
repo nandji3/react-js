@@ -4,7 +4,6 @@ import TextFrom from "./components/TextFrom";
 import About from "./components/About";
 import Alert from "./components/Alert";
 import React, { useState } from 'react'
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";;
 
 function App() {
